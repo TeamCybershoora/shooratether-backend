@@ -1,0 +1,122 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "aabhashsingh2004@gmail.com",
+      "name": "Aabhash Singh",
+      "avatar_url": "https://lh3.googleusercontent.com/a/ACg8ocI4XcT8icMu6S6yL_bHJyLqAi-kp_a5P_DTiCRAGhPQEV2-8g=s96-c",
+      "auth_provider": "google",
+      "provider_id": "109436931311257558749",
+      "plan": "pro",
+      "status": "active",
+      "metadata": {
+        "initial_source": "oauth"
+      },
+      "created_at": "2026-10-22T18:11:03.670Z",
+      "last_login": "2026-10-22T18:11:03.670Z",
+      "tokens_used": 300
+    },
+    {
+      "id": 2,
+      "email": "tk2004kumar@gmail.com",
+      "name": "Tushar Kumar",
+      "avatar_url": "https://lh3.googleusercontent.com/a/ACg8ocJZCHusnllPAf6eG4q7kr55rq4Cv4KLJ8orv3d9w2YbywIkQA=s96-c",
+      "auth_provider": "google",
+      "provider_id": "116796105468190673707",
+      "plan": "free",
+      "status": "active",
+      "metadata": {
+        "initial_source": "oauth"
+      },
+      "created_at": "2026-10-22T18:48:04.424Z",
+      "last_login": "2026-10-22T18:48:04.424Z"
+    }
+  ],
+  "user_sessions": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYWJoYXNoc2luZ2gyMDA0QGdtYWlsLmNvbSIsIm5hbWUiOiJBYWJoYXNoIFNpbmdoIiwicGxhbiI6ImZyZWUiLCJpYXQiOjE3OTI2OTI2NjMsImV4cCI6MTc5NTI4NDY2M30.TTms_pviCZGKl6WnJTDc747sJPkiLQwB3PajRNzh3Yk",
+      "ip_address": "::1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "expires_at": "2026-11-21T18:11:03.674Z",
+      "created_at": "2026-10-22T18:11:03.675Z"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0azIwMDRrdW1hckBnbWFpbC5jb20iLCJuYW1lIjoiVHVzaGFyIEt1bWFyIiwicGxhbiI6ImZyZWUiLCJpYXQiOjE3OTI2OTQ4ODQsImV4cCI6MTc5NTI4Njg4NH0.jxr9EKPXOqHoCC8v_UL1p6xecBiMs5b6W2C_Pw0XHCs",
+      "ip_address": "::1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "expires_at": "2026-11-21T18:48:04.427Z",
+      "created_at": "2026-10-22T18:48:04.429Z"
+    }
+  ],
+  "admin_users": [
+    {
+      "id": 1,
+      "email": "admin@cybershoora.com",
+      "password_hash": "$2a$10$G6YQmned2BYOOzZeJKVz9.p6baoKoSu0dXFAAijvK/.V7RKB8mn32",
+      "role": "superadmin",
+      "created_at": "2026-10-22T18:05:21.199Z"
+    }
+  ],
+  "plans": [
+    {
+      "id": "free",
+      "display_name": "Starter Free",
+      "price_inr": 0,
+      "price_usd": 0,
+      "ai_token_limit": 50000,
+      "features": [
+        "25 AI Tools",
+        "Community Support",
+        "Basic Auto-Complete"
+      ],
+      "is_active": 1
+    },
+    {
+      "id": "pro",
+      "display_name": "Pro Developer",
+      "price_inr": 999,
+      "price_usd": 12,
+      "ai_token_limit": 1000000,
+      "features": [
+        "Unlimited AI Autocomplete",
+        "Codebase RAG",
+        "AWS Deployments",
+        "Priority Models"
+      ],
+      "is_active": 1
+    },
+    {
+      "id": "team",
+      "display_name": "Enterprise Team",
+      "price_inr": 2499,
+      "price_usd": 29,
+      "ai_token_limit": 5000000,
+      "features": [
+        "Custom Models",
+        "Dedicated Cloud Agent",
+        "Admin Analytics",
+        "24/7 SLA Support"
+      ],
+      "is_active": 1
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "user_email": "aabhashsingh2004@gmail.com",
+      "user_name": "Aabhash Singh",
+      "plan_id": "pro",
+      "order_id": "order_sim_1792774842370_378",
+      "payment_id": "pay_test_cybershoora_001",
+      "amount": 999,
+      "currency": "INR",
+      "status": "success",
+      "created_at": "2026-10-23T17:00:42.404Z"
+    }
+  ]
+}

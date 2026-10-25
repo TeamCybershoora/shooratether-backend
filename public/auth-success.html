@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHOORA TETHER — Login Successful</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2' fill='%2300E5FF'/></svg>">
+  <style>
+    :root {
+      --bg: #0B0E14;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --border: rgba(0, 229, 255, 0.25);
+      --accent: #00E5FF;
+      --accent-grad: linear-gradient(135deg, #00E5FF 0%, #3B82F6 50%, #8B5CF6 100%);
+      --text: #F3F4F6;
+      --muted: #9CA3AF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Ambient Glow */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.12) 0%, rgba(139, 92, 246, 0.05) 70%, transparent 100%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .auth-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 229, 255, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+    .logo-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(0, 229, 255, 0.3); transform: scale(1); }
+      50% { box-shadow: 0 0 30px rgba(0, 229, 255, 0.6); transform: scale(1.05); }
+    }
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #10B981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #00E5FF 0%, #3B82F6 100%);
+      color: #0B0E14;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 229, 255, 0.5);
+    }
+    .note {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-card">
+    <div class="logo-wrap">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+        <defs>
+          <linearGradient id="boltG" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00E5FF"/>
+            <stop offset="100%" stop-color="#8B5CF6"/>
+          </linearGradient>
+        </defs>
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="url(#boltG)" stroke="#00E5FF" stroke-width="1.2"/>
+      </svg>
+    </div>
+
+    <h1 class="title">SHOORA TETHER</h1>
+    <div class="status-badge">✓ Authentication Successful</div>
+    <p class="subtitle">
+      You are now authenticated. Handshaking with your <b>SHOORA TETHER Desktop IDE</b>...
+    </p>
+
+    <a href="#" id="openAppBtn" class="btn">Open SHOORA TETHER</a>
+
+    <p class="note" id="countdownNote">Redirecting automatically in 2 seconds...</p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token') || '';
+    const customProtocolUrl = "shooratether://auth/callback?token=" + encodeURIComponent(token);
+    const vscodeProtocolUrl = "vscode://cybershoora.shoora-ai/auth/callback?token=" + encodeURIComponent(token);
+
+    const btn = document.getElementById('openAppBtn');
+    btn.href = customProtocolUrl;
+
+    // Auto-trigger deep link after 400ms
+    setTimeout(() => {
+      // First attempt custom protocol, fallback to vscode protocol
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = customProtocolUrl;
+      document.body.appendChild(iframe);
+
+      setTimeout(() => {
+        window.location.href = vscodeProtocolUrl;
+      }, 500);
+    }, 400);
+
+    let seconds = 2;
+    const note = document.getElementById('countdownNote');
+    const interval = setInterval(() => {
+      seconds--;
+      if (seconds <= 0) {
+        clearInterval(interval);
+        note.textContent = "If the application did not open automatically, click the button above.";
+      } else {
+        note.textContent = `Redirecting automatically in ${seconds}s...`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
