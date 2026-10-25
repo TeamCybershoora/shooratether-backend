@@ -58,7 +58,7 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
     passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: process.env.GOOGLE_CALLBACK_URL || 'http://localhost:5000/api/auth/google/callback'
+        callbackURL: process.env.GOOGLE_CALLBACK_URL || 'https://shooratether-backend.onrender.com/api/auth/google/callback'
     }, async (_accessToken: string, _refreshToken: string, profile: GoogleProfile, done: (err: any, user?: any) => void) => {
         try {
             const email = profile.emails?.[0]?.value;
@@ -91,7 +91,7 @@ if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
     passport.use(new (GitHubStrategy as any)({
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: process.env.GITHUB_CALLBACK_URL || 'http://localhost:5000/api/auth/github/callback',
+        callbackURL: process.env.GITHUB_CALLBACK_URL || 'https://shooratether-backend.onrender.com/api/auth/github/callback',
         scope: ['user:email']
     }, async (_accessToken: string, _refreshToken: string, profile: GitHubProfile, done: (err: any, user?: any) => void) => {
         try {
